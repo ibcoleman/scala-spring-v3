@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,13 +13,13 @@
     <title>Agency - Start Bootstrap Theme</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<c:url value='/resources/css/bootstrap.min.css' />" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="resources/css/agency.css" rel="stylesheet">
+    <link href="<c:url value='/resources/css/agency.css' />" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="resources/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="<c:url value='resources/font-awesome-4.1.0/css/font-awesome.min.css'/>" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -290,22 +290,22 @@
 </div>
 
 <!-- jQuery Version 1.11.0 -->
-<script src="resources/js/jquery-1.11.0.js"></script>
+<script src="<c:url value='/resources/js/jquery-1.11.0.js'/>"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="resources/js/bootstrap.min.js"></script>
+<script src="<c:url value='/resources/js/bootstrap.min.js'/>"></script>
 
 <!-- Plugin JavaScript -->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-<script src="resources/js/classie.js"></script>
-<script src="resources/js/cbpAnimatedHeader.js"></script>
+<script src="<c:url value='/resources/js/classie.js'/>"></script>
+<script src="<c:url value='/resources/js/cbpAnimatedHeader.js'/>"></script>
 
 <!-- Contact Form JavaScript -->
-<script src="resources/js/jqBootstrapValidation.js"></script>
-<script src="resources/js/contact_me.js"></script>
+<script src="<c:url value='/resources/js/jqBootstrapValidation.js'/>"></script>
+<script src="<c:url value='/resources/js/contact_me.js'/>"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="resources/js/agency.js"></script>
+<script src="<c:url value='/resources/js/agency.js'/>"></script>
 
 </body>
 
