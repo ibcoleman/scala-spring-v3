@@ -1,6 +1,6 @@
 package com.memetoclasm.helloworld
 
-import org.springframework.stereotype.Service
+import   org.springframework.stereotype.Service
 
 trait Name {
   def name: String
@@ -9,6 +9,6 @@ trait Name {
 @Service
 class NameService extends Name {
 
-  def name = "world"
+  override def name = "ZOLA"
 
 }
