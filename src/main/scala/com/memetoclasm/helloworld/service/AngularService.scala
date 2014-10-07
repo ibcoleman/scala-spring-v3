@@ -1,4 +1,4 @@
-package com.memetoclasm.helloworld
+package com.memetoclasm.helloworld.service
 
 import org.springframework.stereotype.Service
 
