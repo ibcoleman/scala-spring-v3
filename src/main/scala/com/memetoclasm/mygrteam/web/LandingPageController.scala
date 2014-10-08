@@ -1,6 +1,6 @@
-package com.memetoclasm.helloworld.web
+package com.memetoclasm.mygrteam.web
 
-import com.memetoclasm.helloworld.service.{Name, Angular}
+import com.memetoclasm.mygrteam.service.{Name, Angular}
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model

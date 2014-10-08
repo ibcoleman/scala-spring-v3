@@ -9,7 +9,7 @@
         </param-value>
     </context-param>
     <servlet>
-        <servlet-name>hello</servlet-name>
+        <servlet-name>default</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
         <init-param>
@@ -18,11 +18,11 @@
         </init-param>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>com.memetoclasm.helloworld.Config</param-value>
+            <param-value>com.memetoclasm.mygrteam.Config</param-value>
         </init-param>
     </servlet>
     <servlet-mapping>
-        <servlet-name>hello</servlet-name>
+        <servlet-name>default</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 </web-app>

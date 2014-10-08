@@ -1,4 +1,4 @@
-package com.memetoclasm.helloworld
+package com.memetoclasm.mygrteam
 
 import org.springframework.context.annotation.{Configuration, Bean, ComponentScan}
 import org.springframework.web.servlet.ViewResolver
@@ -7,7 +7,7 @@ import org.springframework.web.servlet.view.tiles3.{TilesViewResolver, TilesConf
 
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackages = Array("com.memetoclasm.helloworld"))
+@ComponentScan(basePackages = Array("com.memetoclasm.mygrteam"))
 class Config extends WebMvcConfigurerAdapter {
 
   @Bean

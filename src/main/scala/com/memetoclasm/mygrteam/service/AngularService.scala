@@ -1,4 +1,4 @@
-package com.memetoclasm.helloworld.service
+package com.memetoclasm.mygrteam.service
 
 import org.springframework.stereotype.Service
 
