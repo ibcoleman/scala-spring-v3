@@ -16,9 +16,15 @@ class LandingPageController @Autowired() (nameService: Name, angularService: Ang
     "home"
   }
 
-  @RequestMapping(value= Array("/angular"), method = Array(RequestMethod.GET))
-  def angular(model: Model) = {
+  @RequestMapping(value= Array("/mygrteam"), method = Array(RequestMethod.GET))
+  def mygrteam(model: Model) = {
     model.addAttribute("name", angularService.name)
-    "angular"
+    "mygrteam"
+  }
+
+  @RequestMapping(value= Array("/mygrteamwf"), method = Array(RequestMethod.GET))
+  def mygrteamwf(model: Model) = {
+    model.addAttribute("name", angularService.name)
+    "mygrteamwf"
   }
 }

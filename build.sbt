@@ -15,5 +15,4 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-camel" % "2.4-SNAPSHOT",
   "org.apache.camel" % "camel-jetty" % "2.14.0",
   "org.apache.camel" % "camel-quartz" % "2.14.0"
-
 )

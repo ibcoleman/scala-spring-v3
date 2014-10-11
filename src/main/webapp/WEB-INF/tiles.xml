@@ -15,8 +15,13 @@
         <put-attribute name="body" value="/WEB-INF/views/home.jsp" />
     </definition>
 
-    <definition name="angular" extends="base.definition">
-        <put-attribute name="title" value="Angular Test Page" />
-        <put-attribute name="body" value="/WEB-INF/views/angular.jsp" />
+
+    <!-- Because this is an SPA, we don't use the standard tiles config, just the layout is sufficient. -->
+    <definition name="mygrteam" template="/WEB-INF/views/mygrteam.jsp">
+        <put-attribute name="title" value="My GR Staffer SPA" />
+    </definition>
+
+    <definition name="mygrteamwf" template="/WEB-INF/views/mygrteam-wireframe.jsp">
+        <put-attribute name="title" value="WIREFRAME: My GR Staffer SPA" />
     </definition>
 </tiles-definitions>

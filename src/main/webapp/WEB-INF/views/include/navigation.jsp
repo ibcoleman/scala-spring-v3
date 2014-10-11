@@ -22,10 +22,10 @@
                     <a class="page-scroll" href="#services">Services</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="/angular">Angular</a>
+                    <a class="page-scroll" href="/mygrteam">My GR Team</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#about">About</a>
+                    <a class="page-scroll" href="/mygrteamwf">My GR (Wireframe)</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="#team">Team</a>
