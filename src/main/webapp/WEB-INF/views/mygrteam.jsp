@@ -8,6 +8,7 @@
 <head>
     <title><tiles:insertAttribute name="title"/></title>
     <!-- stylesheets -->
+    <link rel="stylesheet" href="<c:url value='/resources/css/normalize.css' />" type="text/css"/>
     <link rel="stylesheet" href="<c:url value='/resources/css/mygrteam.css' />" type="text/css"/>
     <link rel="stylesheet" href="<c:url value='/resources/css/mygrteam.shell.css' />" type="text/css"/>
     <!-- third-party javascript -->
