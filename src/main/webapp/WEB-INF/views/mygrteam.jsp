@@ -6,17 +6,29 @@
 <!doctype html>
 <html>
 <head>
+    <!-- Fix IE: ie9+ rendering support for latest standards -->
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title><tiles:insertAttribute name="title"/></title>
-    <!-- stylesheets -->
+
+    <!-- third party stylesheets -->
     <link rel="stylesheet" href="<c:url value='/resources/css/normalize.css' />" type="text/css"/>
+
+    <!-- project stylesheets -->
     <link rel="stylesheet" href="<c:url value='/resources/css/mygrteam.css' />" type="text/css"/>
     <link rel="stylesheet" href="<c:url value='/resources/css/mygrteam.shell.css' />" type="text/css"/>
+    <link rel="stylesheet" href="<c:url value='/resources/css/mygrteam.chat.css' />" type="text/css"/>
+
     <!-- third-party javascript -->
     <script src="<c:url value='/resources/js/jquery-1.11.0.js' />"></script>
     <script src="<c:url value='/resources/js/jquery.uriAnchor1.1.1-3.js' />" ></script>
-    <!-- our javascript -->
+
+    <!-- project javascript -->
     <script src="<c:url value='/resources/js/mygrteam.js' />" ></script>
+    <script src="<c:url value='/resources/js/mygrteam.util.js' />" ></script>
+    <script src="<c:url value='/resources/js/mygrteam.model.js' />" ></script>
     <script src="<c:url value='/resources/js/mygrteam.shell.js' />" ></script>
+    <script src="<c:url value='/resources/js/mygrteam.chat.js' />" ></script>
     <script>
         $(function () { mygrteam.initModule( $('#mygrteam') ); });
     </script>
