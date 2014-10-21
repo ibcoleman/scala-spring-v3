@@ -10,7 +10,7 @@ mygrteam.shell = (function () {
     //---------------- BEGIN MODULE SCOPE VARIABLES --------------
     var configMap = {
             anchor_schema_map: {
-                chat: { open: true, closed: true }
+                chat: { opened: true, closed: true }
             },
             main_html: String() +
                 '<div class="mygrteam-shell-head">' +
@@ -23,7 +23,6 @@ mygrteam.shell = (function () {
                 '<div class="mygrteam-shell-main-content"></div>' +
                 '</div>' +
                 '<div class="mygrteam-shell-foot"></div>' +
-                '<div class="mygrteam-shell-chat"></div>' +
                 '<div class="mygrteam-shell-modal"></div>',
             chat_extend_time: 1000,
             chat_retract_time: 300,
@@ -34,16 +33,14 @@ mygrteam.shell = (function () {
 
         },
         stateMap = {
-            $container: null,
-            anchor_map: {},
-            is_chat_retracted: true
+            anchor_map: {}
         },
         jqueryMap = {},
 
         copyAnchorMap,
         setJqueryMap,
-        toggleChat,
         changeAnchorPart,
+        setChatAnchor,
         onHashchange,
         onClickChat,
         initModule;
@@ -65,8 +62,7 @@ mygrteam.shell = (function () {
     setJqueryMap = function () {
         var $container = stateMap.$container;
         jqueryMap = {
-            $container: $container,
-            $chat: $container.find('.mygrteam-shell-chat')
+            $container: $container
         };
     };
     // End DOM method /setJqueryMap
@@ -222,10 +218,10 @@ mygrteam.shell = (function () {
     //
     onHashchange = function ( event ) {
         var
-            anchor_map_previous = copyAnchorMap(),
+            _s_chat_previous, _s_chat_proposed, s_chat_proposed,
             anchor_map_proposed,
-            _s_chat_previous, _s_chat_proposed,
-            s_chat_proposed;
+            is_ok = true,
+            anchor_map_previous = copyAnchorMap();
         // attempt to parse anchor
         try { anchor_map_proposed = $.uriAnchor.makeAnchorMap(); }
         catch ( error ) {
@@ -242,11 +238,11 @@ mygrteam.shell = (function () {
             ) {
             s_chat_proposed = anchor_map_proposed.chat;
             switch ( s_chat_proposed ) {
-                case 'open' :
-                    toggleChat( true );
+                case 'opened' :
+                    is_ok = mygrteam.chat.setSliderPosition('opened');
                     break;
                 case 'closed' :
-                    toggleChat( false );
+                    is_ok = mygrteam.chat.setSliderPosition('closed');
                     break;
                 default :
                     toggleChat( false );
@@ -255,33 +251,78 @@ mygrteam.shell = (function () {
             }
         }
         // End adjust chat component if changed
+
+        if ( ! is_ok ){
+            if ( anchor_map_previous ){
+                $.uriAnchor.setAnchor( anchor_map_previous, null, true );
+                stateMap.anchor_map = anchor_map_previous;
+            } else {
+                delete anchor_map_proposed.chat;
+                $.uriAnchor.setAnchor( anchor_map_proposed, null, true );
+            }
+        }
+// End revert anchor if slider change denied
         return false;
     };
     // End Event handler /onHashchange/
     //-------------------- END EVENT HANDLERS --------------------
 
-
+    //---------------------- BEGIN CALLBACKS ---------------------
+// Begin callback method /setChatAnchor/
+// Example : setChatAnchor( 'closed' );
+// Purpose : Change the chat component of the anchor
+// Arguments:
+// * position_type - may be 'closed' or 'opened'
+// Action :
+// Changes the URI anchor parameter 'chat' to the requested
+// value if possible.
+// Returns :
+// * true - requested anchor part was updated
+// * false - requested anchor part was not updated
+// Throws : none
+//
+    setChatAnchor = function ( position_type ){
+        return changeAnchorPart({ chat : position_type });
+    };
+// End callback method /setChatAnchor/
+//----------------------- END CALLBACKS ----------------------
     //------------------- BEGIN PUBLIC METHODS -------------------
     // Begin PUBLIC method / initModule
     initModule = function ($container) {
 
-        $.uriAnchor.configModule(({
-            schema_map : configMap.anchor_schema_map
-        }));
+// load HTML and map jQuery collections
 
         stateMap.$container = $container;
         $container.html(configMap.main_html);
         setJqueryMap();
 
-        // configure and initialize feature modules
-        mygrteam.chat.configModule({});
-        mygrteam.chat.initModule(jqueryMap.$chat);
+// configure uriAnchor to use our schema
 
-        // initialize chat slider and bind click handler
-        stateMap.is_chat_retracted = true;
-        jqueryMap.$chat
-            .attr('title', configMap.chat_retracted_title)
-            .click(onClickChat);
+        $.uriAnchor.configModule({
+            schema_map: configMap.anchor_schema_map
+        });
+
+// configure and initialize feature modules
+
+        mygrteam.chat.configModule({
+            set_chat_anchor: setChatAnchor,
+            chat_model: mygrteam.model.chat,
+            people_model: mygrteam.model.people
+        });
+
+        mygrteam.chat.initModule(jqueryMap.$container);
+
+        // Handle URI anchor change events.
+        // This is done /after/ all feature modules are configured
+        // and initialized, otherwise they will not be ready to handle
+        // the trigger event, which is used to ensure the anchor
+        // is considered on-load
+        //
+
+        $(window)
+            .bind( 'hashchange', onHashchange )
+            .trigger( 'hashchange' );
+
     };
     // End PUBLIC method / initModule
     return { initModule: initModule };

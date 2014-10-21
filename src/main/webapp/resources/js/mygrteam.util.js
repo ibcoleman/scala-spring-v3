@@ -22,6 +22,8 @@ mygrteam.util = (function () {
         return error;
     };
     // End Public constructor /makeError/
+
+
     // Begin Public method /setConfigMap/
     // Purpose: Common code to set configs in feature modules
     // Arguments:

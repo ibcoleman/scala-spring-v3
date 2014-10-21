@@ -3,6 +3,8 @@
  */
 
 mygrteam.model = (function () {
+    var chat, people;
+    return {};
     //---------------- BEGIN MODULE SCOPE VARIABLES --------------
     //----------------- END MODULE SCOPE VARIABLES ---------------
     //-------------------- BEGIN UTILITY METHODS -----------------

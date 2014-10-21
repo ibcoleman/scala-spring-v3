@@ -1,10 +1,10 @@
 /*
-* spa.shell.css
+* mygrteam.shell.css
 * Shell styles
 */
 .mygrteam-shell-head, .mygrteam-shell-head-logo, .mygrteam-shell-head-acct,
 .mygrteam-shell-head-search, .mygrteam-shell-main, .mygrteam-shell-main-nav,
-.mygrteam-shell-main-content, .mygrteam-shell-foot, .mygrteam-shell-chat,
+.mygrteam-shell-main-content, .mygrteam-shell-foot,
 .mygrteam-shell-modal {
     position : absolute;
 }
@@ -67,20 +67,6 @@
     right : 0;
     height : 40px;
 }
-.mygrteam-shell-chat {
-    bottom : 0;
-    right : 0;
-    width : 300px;
-    height : 15px;
-    cursor : pointer;
-    background : red;
-    border-radius : 5px 0 0 0;
-    z-index : 1;
-}
-
-.mygrteam-shell-chat:hover {
-    background : #a00;
-}
 
 .mygrteam-shell-modal {
     margin-top : -200px;
@@ -92,4 +78,5 @@
     background : #fff;
     border-radius : 3px;
     z-index : 2;
+    display : none;
 }
